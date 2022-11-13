@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+     <title>Document</title>
+     <script>
+        function Verificar()
+        {
+            document.form1.txtNome.style.background = "white"
+            document.form1.txtData.style.background = "white"
+            document.form1.txtEmail.style.background = "white"
+            document.form1.txtCPF.style.background = "white"
+            document.form1.txtCEP.style.background = "white"
+            document.form1.txtNumCel.style.background = "white"
+            document.form1.txtNumTel.style.background = "white"
+            document.form1.produto.style.background = "white"
+            document.form1.desc.style.background = "white"
+
+            var n, d, e, cpf, cep, cel, tel, prod, descri;
+
+         
+            n = document.getElementById("txtNome").value;
+            if ( n.length == 0 )
+            {
+                alert("Preencha o campo nome");
+                document.form1.txtNome.style.background = "red";
+                document.form1.txtNome.focus();
+                return false;
+            }
+           
+            d = document.getElementById("txtData").value;
+            if ( d.length == 0) 
+            {
+                alert("Preencha o campo data de nascimento");
+                document.form1.txtData.style.background = "red";
+                document.form1.txtData.focus();
+                return false;
+            }
+
+            e = document.getElementById("txtEmail").value;
+            if ( e.indexOf("@") < 0 )
+            {
+                alert("Preencha corretamento o campo e-mail");
+                document.form1.txtEmail.style.background = "red";
+                document.form1.txtEmail.focus();
+                return false;
+            }
+            
+            cpf = document.getElementById("txtCPF").value;
+            if ( cpf.length == 0 )
+            {
+                alert("Preencha o campo CPF");
+                document.form1.txtCPF.style.background = "red";
+                document.form1.txtCPF.focus();
+                return false;
+            }
+
+            cep = document.getElementById("txtCEP").value;
+            if ( cep.length == 0 )
+            {
+                alert("Preencha o campo CEP");
+                document.form1.txtCEP.style.background = "red";
+                document.form1.txtCEP.focus();
+                return false;
+            }
+            
+            cel = document.getElementById("txtNumCel").value;
+            if ( cel.length == 0 )
+            {
+                alert("Preencha o campo numero de celular");
+                document.form1.txtNumCel.style.background = "red";
+                document.form1.txtNumCel.focus();
+                return false;
+            }
+
+            tel = document.getElementById("txtNumTel").value;
+            if ( tel.length == 0 )
+            {
+                alert("Preencha o campo numero de telefone");
+                document.form1.txtNumTel.style.background = "red";
+                document.form1.txtNumTel.focus();
+                return false;
+            }
+
+            prod = document.getElementById("produto").value;
+            if ( prod.length == 0 )
+            {
+                alert("Preencha o campo produto");
+                document.form1.produto.style.background = "red";
+                document.form1.produto.focus();
+                return false;
+            } 
+
+            descri = document.getElementById("desc").value;
+            if ( descri.length == 0 )
+            {
+                alert("Preencha o campo descricao do problema");
+                document.form1.desc.style.background = "red";
+                document.form1.desc.focus();
+                return false;
+            } 
+           
+            document.form1.submit()
+        }
+     </script>
+</head>
+<body>
+    <form name="form1" action="grava.jsp" method="post">
+        <fieldset>
+            <legend>Cadastro</legend>
+            Nome:
+            <input type="text" name="txtNome">  <br>
+            Data de nascimento:
+            <input type="date" name="txtData"> <br>
+            Email:
+            <input type="text" name="txtEmail"> <br>
+            CPF:
+            <input type="text" name="txtCPF"> <br> 
+            CEP:
+            <input type="text" name="txtCEP"> <br>
+            Número de celular:
+            <input type="text" name="txtNumCel"> <br>
+            Número de telefone:
+            <input type="text" name="txtNumTel"> <br>
+            Produto:
+            <select name="produto">
+                <option value="Micro">Microondas            </option>
+                <option value="Gela"> Geladeira             </option>
+                <option value="Air">  Air Fryer             </option>
+                <option value="Liqui">Liquidificador        </option>
+                <option value="Cafe"> Cafeteira             </option>
+                <option value="Lava"> Lava louças           </option>
+                <option value="Maqui">Máquina de lavar roupa</option>
+            </select> <br>
+            Descrição do problema: <br>
+            <textarea name="desc" cols="60" rows="8">
+            </textarea>
+
+            <input type="submit" value="Gravar">
+        </fieldset>
+    </form>
+</body>
+</html>
